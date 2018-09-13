@@ -3,14 +3,14 @@ syntax = "proto3";
 package pb;
 
 message GCDRequest {
-    uint64 a = 1;
-    uint64 b = 2;
+  uint64 a = 1;
+  uint64 b = 2;
 }
 
-message GCDRespone {
-    uint64 result = 1;
+message GCDResponse {
+  uint64 result = 1;
 }
 
 service GCDService {
-    rpc Compute (GCDRequest) returns (GCDRespone) {}
+  rpc Compute (GCDRequest) returns (GCDResponse) {}
 }

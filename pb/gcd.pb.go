@@ -69,38 +69,38 @@ func (m *GCDRequest) GetB() uint64 {
 	return 0
 }
 
-type GCDRespone struct {
+type GCDResponse struct {
 	Result               uint64   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GCDRespone) Reset()         { *m = GCDRespone{} }
-func (m *GCDRespone) String() string { return proto.CompactTextString(m) }
-func (*GCDRespone) ProtoMessage()    {}
-func (*GCDRespone) Descriptor() ([]byte, []int) {
+func (m *GCDResponse) Reset()         { *m = GCDResponse{} }
+func (m *GCDResponse) String() string { return proto.CompactTextString(m) }
+func (*GCDResponse) ProtoMessage()    {}
+func (*GCDResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_178e0e204cde370a, []int{1}
 }
-func (m *GCDRespone) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GCDRespone.Unmarshal(m, b)
+func (m *GCDResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GCDResponse.Unmarshal(m, b)
 }
-func (m *GCDRespone) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GCDRespone.Marshal(b, m, deterministic)
+func (m *GCDResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GCDResponse.Marshal(b, m, deterministic)
 }
-func (m *GCDRespone) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GCDRespone.Merge(m, src)
+func (m *GCDResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GCDResponse.Merge(m, src)
 }
-func (m *GCDRespone) XXX_Size() int {
-	return xxx_messageInfo_GCDRespone.Size(m)
+func (m *GCDResponse) XXX_Size() int {
+	return xxx_messageInfo_GCDResponse.Size(m)
 }
-func (m *GCDRespone) XXX_DiscardUnknown() {
-	xxx_messageInfo_GCDRespone.DiscardUnknown(m)
+func (m *GCDResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GCDResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GCDRespone proto.InternalMessageInfo
+var xxx_messageInfo_GCDResponse proto.InternalMessageInfo
 
-func (m *GCDRespone) GetResult() uint64 {
+func (m *GCDResponse) GetResult() uint64 {
 	if m != nil {
 		return m.Result
 	}
@@ -109,7 +109,7 @@ func (m *GCDRespone) GetResult() uint64 {
 
 func init() {
 	proto.RegisterType((*GCDRequest)(nil), "pb.GCDRequest")
-	proto.RegisterType((*GCDRespone)(nil), "pb.GCDRespone")
+	proto.RegisterType((*GCDResponse)(nil), "pb.GCDResponse")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -124,7 +124,7 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type GCDServiceClient interface {
-	Compute(ctx context.Context, in *GCDRequest, opts ...grpc.CallOption) (*GCDRespone, error)
+	Compute(ctx context.Context, in *GCDRequest, opts ...grpc.CallOption) (*GCDResponse, error)
 }
 
 type gCDServiceClient struct {
@@ -135,8 +135,8 @@ func NewGCDServiceClient(cc *grpc.ClientConn) GCDServiceClient {
 	return &gCDServiceClient{cc}
 }
 
-func (c *gCDServiceClient) Compute(ctx context.Context, in *GCDRequest, opts ...grpc.CallOption) (*GCDRespone, error) {
-	out := new(GCDRespone)
+func (c *gCDServiceClient) Compute(ctx context.Context, in *GCDRequest, opts ...grpc.CallOption) (*GCDResponse, error) {
+	out := new(GCDResponse)
 	err := c.cc.Invoke(ctx, "/pb.GCDService/Compute", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -146,7 +146,7 @@ func (c *gCDServiceClient) Compute(ctx context.Context, in *GCDRequest, opts ...
 
 // GCDServiceServer is the server API for GCDService service.
 type GCDServiceServer interface {
-	Compute(context.Context, *GCDRequest) (*GCDRespone, error)
+	Compute(context.Context, *GCDRequest) (*GCDResponse, error)
 }
 
 func RegisterGCDServiceServer(s *grpc.Server, srv GCDServiceServer) {
@@ -187,14 +187,14 @@ var _GCDService_serviceDesc = grpc.ServiceDesc{
 func init() { proto.RegisterFile("gcd.proto", fileDescriptor_178e0e204cde370a) }
 
 var fileDescriptor_178e0e204cde370a = []byte{
-	// 140 bytes of a gzipped FileDescriptorProto
+	// 144 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4c, 0x4f, 0x4e, 0xd1,
 	0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2a, 0x48, 0x52, 0xd2, 0xe0, 0xe2, 0x72, 0x77, 0x76,
 	0x09, 0x4a, 0x2d, 0x2c, 0x4d, 0x2d, 0x2e, 0x11, 0xe2, 0xe1, 0x62, 0x4c, 0x94, 0x60, 0x54, 0x60,
-	0xd4, 0x60, 0x09, 0x62, 0x4c, 0x04, 0xf1, 0x92, 0x24, 0x98, 0x20, 0xbc, 0x24, 0x25, 0x15, 0xa8,
-	0xca, 0xe2, 0x82, 0xfc, 0xbc, 0x54, 0x21, 0x31, 0x2e, 0xb6, 0xa2, 0xd4, 0xe2, 0xd2, 0x9c, 0x12,
-	0xa8, 0x72, 0x28, 0xcf, 0xc8, 0x12, 0xac, 0x2a, 0x38, 0xb5, 0xa8, 0x2c, 0x33, 0x39, 0x55, 0x48,
-	0x9b, 0x8b, 0xdd, 0x39, 0x3f, 0xb7, 0xa0, 0xb4, 0x24, 0x55, 0x88, 0x4f, 0xaf, 0x20, 0x49, 0x0f,
-	0x61, 0x95, 0x14, 0x82, 0x0f, 0x36, 0x50, 0x89, 0x21, 0x89, 0x0d, 0xec, 0x2a, 0x63, 0x40, 0x00,
-	0x00, 0x00, 0xff, 0xff, 0xe3, 0x9c, 0xb3, 0x20, 0xa2, 0x00, 0x00, 0x00,
+	0xd4, 0x60, 0x09, 0x62, 0x4c, 0x04, 0xf1, 0x92, 0x24, 0x98, 0x20, 0xbc, 0x24, 0x25, 0x55, 0x2e,
+	0x6e, 0xb0, 0xca, 0xe2, 0x82, 0xfc, 0xbc, 0xe2, 0x54, 0x21, 0x31, 0x2e, 0xb6, 0xa2, 0xd4, 0xe2,
+	0xd2, 0x9c, 0x12, 0xa8, 0x7a, 0x28, 0xcf, 0xc8, 0x0a, 0x6c, 0x60, 0x70, 0x6a, 0x51, 0x59, 0x66,
+	0x72, 0xaa, 0x90, 0x0e, 0x17, 0xbb, 0x73, 0x7e, 0x6e, 0x41, 0x69, 0x49, 0xaa, 0x10, 0x9f, 0x5e,
+	0x41, 0x92, 0x1e, 0xc2, 0x2e, 0x29, 0x7e, 0x38, 0x1f, 0x62, 0xa2, 0x12, 0x43, 0x12, 0x1b, 0xd8,
+	0x5d, 0xc6, 0x80, 0x00, 0x00, 0x00, 0xff, 0xff, 0x00, 0x5f, 0x20, 0xdc, 0xa4, 0x00, 0x00, 0x00,
 }
